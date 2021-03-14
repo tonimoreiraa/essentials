@@ -1,0 +1,24 @@
+{
+    "name": "tonimoreiraa/essentials",
+    "description": "Pacote com classes no padrão de projeto tonimoreiraa",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Toni Moreira",
+            "email": "toni@itentecnologia.com.br"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "2.x-dev",
+        "coffeecode/datalayer": "dev-master",
+        "ext-pdo": "*",
+        "league/plates": "v3.x-dev",
+        "tonimoreiraa/acl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "tonimoreiraa\\essentials\\": "src"
+        },
+        "files": ["src/Includes/Includes.php"]
+    }
+}
