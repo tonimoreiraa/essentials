@@ -2,6 +2,7 @@
     "name": "tonimoreiraa/essentials",
     "description": "Pacote com classes no padrão de projeto tonimoreiraa",
     "type": "library",
+    "version": "0.4.0",
     "authors": [
         {
             "name": "Toni Moreira",
