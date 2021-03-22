@@ -1,8 +1,6 @@
 <?php
 namespace tonimoreiraa\essentials;
 
-use CoffeeCode\DataLayer\DataLayer;
-
 class Company extends DataLayer
 {
 
