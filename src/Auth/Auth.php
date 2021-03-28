@@ -28,6 +28,11 @@ class Auth
         } else {
             $user = $user->fetch();
         }
+        
+        // verifica empresa
+        if(!boolval($user->getCompany()->is_active)){
+            return false;
+        }
 
         // verifica senha
         if(!password_verify($password, $user->password)){
