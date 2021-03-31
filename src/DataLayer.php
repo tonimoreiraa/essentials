@@ -3,7 +3,7 @@ namespace tonimoreiraa\essentials;
 
 use CoffeeCode\DataLayer as Core;
 use CoffeeCode\DataLayer\Connect;
-use ACL\ACL;
+use tonimoreiraa\ACL\ACL;
 
 class DataLayer extends Core\DataLayer
 {
@@ -115,12 +115,11 @@ class DataLayer extends Core\DataLayer
         ]);
 
         while($column = $search->fetch()){
-            array_push($arr, $column->name);
+            $prohibited = ['id', 'created_at', 'updated_at'];
+            if(!in_array($column->name, $prohibited)){
+                array_push($arr, $column->name);
+            }
         }
-
-        unset($arr[array_search('id', $arr)]);
-        unset($arr[array_search('created_at', $arr)]);
-        unset($arr[array_search('updated_at', $arr)]);
 
         return $arr;
     }
