@@ -212,7 +212,7 @@ class DataLayer extends Core\DataLayer
     {
         $data = (array)$this->data();
         foreach ($this->required as $field) {
-            if (empty($data[$field]) && $data[$field] != 0) {
+            if (isset($data[$field]) && $data[$field] != 0) {
                 return false;
             }
         }
