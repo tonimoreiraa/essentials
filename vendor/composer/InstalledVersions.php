@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'fbd6e720c292981342159b0a105993acdd06b235',
+    'reference' => 'd2b08fa9c685a5c0fc1ad11e6c92017f9de6b1b9',
     'name' => 'tonimoreiraa/essentials',
   ),
   'versions' => 
@@ -43,7 +43,7 @@ private static $installed = array (
       array (
         0 => '9999999-dev',
       ),
-      'reference' => '6a51fa227bba003be11519e7efa8338bc87460f5',
+      'reference' => '52e209190752eccc0bfd8ff3abcdd607ed4c01c1',
     ),
     'league/plates' => 
     array (
@@ -63,16 +63,16 @@ private static $installed = array (
       array (
         0 => '2.x-dev',
       ),
-      'reference' => 'c1971982c3b792e488726468046b1ef977934c6a',
+      'reference' => 'bac1ddd01913a073f236b5d0aa27cb2ef3b37b6a',
     ),
     'psr/log' => 
     array (
-      'pretty_version' => '1.1.3',
-      'version' => '1.1.3.0',
+      'pretty_version' => '1.1.4',
+      'version' => '1.1.4.0',
       'aliases' => 
       array (
       ),
-      'reference' => '0f73288fd15629204f9d42b7055f72dacbe811fc',
+      'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
     ),
     'psr/log-implementation' => 
     array (
@@ -81,15 +81,6 @@ private static $installed = array (
         0 => '1.0.0',
       ),
     ),
-    'tonimoreiraa/acl' => 
-    array (
-      'pretty_version' => '1.0.0',
-      'version' => '1.0.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'f2defe99fc74e8bfcb070829dd194c152f117b50',
-    ),
     'tonimoreiraa/essentials' => 
     array (
       'pretty_version' => 'dev-main',
@@ -97,7 +88,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'fbd6e720c292981342159b0a105993acdd06b235',
+      'reference' => 'd2b08fa9c685a5c0fc1ad11e6c92017f9de6b1b9',
     ),
   ),
 );
@@ -322,7 +313,6 @@ self::$canGetVendors = method_exists('Composer\Autoload\ClassLoader', 'getRegist
 $installed = array();
 
 if (self::$canGetVendors) {
-
 foreach (ClassLoader::getRegisteredLoaders() as $vendorDir => $loader) {
 if (isset(self::$installedByVendor[$vendorDir])) {
 $installed[] = self::$installedByVendor[$vendorDir];

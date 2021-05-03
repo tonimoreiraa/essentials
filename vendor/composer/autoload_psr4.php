@@ -11,5 +11,4 @@ return array(
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'League\\Plates\\' => array($vendorDir . '/league/plates/src'),
     'CoffeeCode\\DataLayer\\' => array($vendorDir . '/coffeecode/datalayer/src'),
-    'ACL\\' => array($vendorDir . '/tonimoreiraa/acl/src'),
 );

@@ -12,8 +12,7 @@
         "monolog/monolog": "2.x-dev",
         "coffeecode/datalayer": "dev-master",
         "ext-pdo": "*",
-        "league/plates": "v3.x-dev",
-        "tonimoreiraa/acl": "*"
+        "league/plates": "v3.x-dev"
     },
     "autoload": {
         "psr-4": {

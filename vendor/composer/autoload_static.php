@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite3aea869b0a92832cb9daf1635ea6028
+class ComposerStaticInitd5f3a80ea6333e95d2147c0f98595c55
 {
     public static $files = array (
         'eb081899c04956035900ed05221b2b6d' => __DIR__ . '/../..' . '/src/Includes/Includes.php',
@@ -31,10 +31,6 @@ class ComposerStaticInite3aea869b0a92832cb9daf1635ea6028
         array (
             'CoffeeCode\\DataLayer\\' => 21,
         ),
-        'A' => 
-        array (
-            'ACL\\' => 4,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -58,10 +54,6 @@ class ComposerStaticInite3aea869b0a92832cb9daf1635ea6028
         array (
             0 => __DIR__ . '/..' . '/coffeecode/datalayer/src',
         ),
-        'ACL\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/tonimoreiraa/acl/src',
-        ),
     );
 
     public static $classMap = array (
@@ -71,9 +63,9 @@ class ComposerStaticInite3aea869b0a92832cb9daf1635ea6028
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInite3aea869b0a92832cb9daf1635ea6028::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInite3aea869b0a92832cb9daf1635ea6028::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInite3aea869b0a92832cb9daf1635ea6028::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitd5f3a80ea6333e95d2147c0f98595c55::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitd5f3a80ea6333e95d2147c0f98595c55::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitd5f3a80ea6333e95d2147c0f98595c55::$classMap;
 
         }, null, ClassLoader::class);
     }

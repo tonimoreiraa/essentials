@@ -20,22 +20,17 @@ while($function_dir = $functions_dir->read()){
     }
 }
 
-use Monolog\Logger;
-use \Monolog\Handler\StreamHandler;
-use \Monolog\Formatter\LineFormatter;
-use \Monolog\Handler\TelegramBotHandler;
+$stream = new \Monolog\Handler\StreamHandler(__ROOT__.'/App/Log/log-'.date('Y-m-d').'.log', Logger::DEBUG);
+$stream->setFormatter(new \Monolog\Formatter\LineFormatter("\n[%datetime%] [%level_name%]: %message% %context% %extra%", 'd/m/Y H:i:s'));
 
-$stream = new StreamHandler(__ROOT__.'/App/Log/log-'.date('Y-m-d').'.log', Logger::DEBUG);
-$stream->setFormatter(new LineFormatter("\n[%datetime%] [%level_name%]: %message% %context% %extra%", 'd/m/Y H:i:s'));
-
-$telegram = new TelegramBotHandler(
+$telegram = new \Monolog\Handler\TelegramBotHandler(
     '1533146893:AAFJ1_wcn0FanxC044nhG3wt9s0bERj70x4',
     '@meus_projetos',
-    Logger::WARNING
+    \Monolog\Logger::WARNING
 );
 $telegram->setParseMode('HTML');
-$telegram->setFormatter(new LineFormatter("<b>[".PROJECT_NAME."]\n[%level_name%]</b>\n%message%\n\n<b>Detalhes:</b>\n%context%\n\n<b>Extra:</b>\n%extra%"));
+$telegram->setFormatter(new \Monolog\Formatter\LineFormatter("<b>[".PROJECT_NAME."]\n[%level_name%]</b>\n%message%\n\n<b>Detalhes:</b>\n%context%\n\n<b>Extra:</b>\n%extra%"));
 
-$GLOBALS['log'] = new Logger('log');
+$GLOBALS['log'] = new \Monolog\Logger('log');
 $GLOBALS['log']->pushHandler($stream);
 $GLOBALS['log']->pushHandler($telegram);

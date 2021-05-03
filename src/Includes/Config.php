@@ -5,7 +5,7 @@ $config = json_decode($config);
 
 // banco de dados
 define('DATA_LAYER_CONFIG', [
-    'driver' => 'pgsql',
+    'driver' => $config->db->protocol,
     'host' => $config->db->host,
     'port' => $config->db->port,
     'username' => $config->db->username,
