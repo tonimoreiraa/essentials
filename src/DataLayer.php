@@ -195,24 +195,23 @@ abstract class DataLayer
      * @param bool $all
      * @return mixed
      */
-    public function fetch(bool $all = false): mixed
+    public function fetch(bool $all = false)
     {
         try {
             $stmt = Connect::getInstance()->prepare($this->statement . $this->group . $this->order . $this->limit . $this->offset);
             $stmt->execute($this->params);
 
             if (!$stmt->rowCount()) {
-                $fetch = null;
-            }
-
-            if ($all) {
+                $fetch = [];
+            } else if ($all) {
                 $fetch = $stmt->fetchAll(PDO::FETCH_CLASS, static::class);
+            } else {
+                $fetch = $stmt->fetchObject(static::class);
             }
-
-            $fetch = $stmt->fetchObject(static::class);
+            
         } catch (PDOException $exception) {
             $this->fail = $exception;
-            return null;
+            return [];
         }
 
         if(!empty($this->required_permission) OR is_int($this->required_permission)){
@@ -258,7 +257,7 @@ abstract class DataLayer
 
         if ($this->timestamps) {
             if(!is_string($this->is_active)){
-                $this->is_active = !$this->is_active ? 'false' : 'true';
+                $this->is_active = isset($this->is_active) ? ($this->is_active ? 'true' : 'false') : 'true';
             }
             if(!is_string($this->is_deleted)){
                 $this->is_deleted = $this->is_deleted ? 'true' : 'false';
@@ -375,22 +374,7 @@ abstract class DataLayer
 
         return $return;
     }
-
-    /** Verifica se já existe registro
-     * @param string $name Nome para verificar
-     * @param string $camp Coluna para procurar
-     * @return bool
-     */
-    public function verifyAlreadyExists(string $name, string $camp = 'name'): bool
-    {
-        $db = Connect::getInstance();
-
-        $search = $db->prepare("SELECT id FROM {$this->entity} WHERE {$camp} = ?;");
-        $search->execute([$name]);
-
-        return $search->rowCount() ? true : false;
-    }
-
+    
     /** Verifica se tem permissão
      * @param int $permission Permissão a ser verificado
      * @return $this
