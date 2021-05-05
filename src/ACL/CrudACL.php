@@ -54,10 +54,10 @@ trait CrudACL
             unset($path[$i]);
             if(property_exists($acl, $object)){
                 $acl = $acl->$object;
-            } else if(count($path) > 0) {
-                return false;
+            } else if(property_exists($acl, 'all')){
+                $acl = $acl->all;
             } else {
-                return $acl;
+                return ACL::EMPTY;
             }
         }
         return $acl;
@@ -81,7 +81,7 @@ trait CrudACL
         $n_acl = json_decode(json_encode($n_acl));
         $this->acl = $n_acl;
 
-        $acl = fopen(__DIR__.'/../files/ACL.json', 'w+');
+        $acl = fopen(dirname(__DIR__).'/files/ACL.json', 'w+');
         return is_int(fwrite($acl, json_encode($this->acl)));
     }
 }
