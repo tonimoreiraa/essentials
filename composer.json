@@ -10,7 +10,6 @@
     ],
     "require": {
         "monolog/monolog": "2.x-dev",
-        "coffeecode/datalayer": "dev-master",
         "ext-pdo": "*",
         "league/plates": "v3.x-dev"
     },
