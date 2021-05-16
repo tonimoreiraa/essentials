@@ -20,7 +20,7 @@ while($function_dir = $functions_dir->read()){
     }
 }
 
-$stream = new \Monolog\Handler\StreamHandler(__ROOT__.'/App/Log/log-'.date('Y-m-d').'.log', Logger::DEBUG);
+$stream = new \Monolog\Handler\StreamHandler(__ROOT__.'/App/Log/log-'.date('Y-m-d').'.log', \Monolog\Logger::DEBUG);
 $stream->setFormatter(new \Monolog\Formatter\LineFormatter("\n[%datetime%] [%level_name%]: %message% %context% %extra%", 'd/m/Y H:i:s'));
 
 $telegram = new \Monolog\Handler\TelegramBotHandler(
