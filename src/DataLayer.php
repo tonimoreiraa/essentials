@@ -146,7 +146,7 @@ abstract class DataLayer
      * @param string $columns
      * @return DataLayer|null
      */
-    public function findById(int $id, string $columns = "*"): ?DataLayer
+    public function findById(int $id, string $columns = "*")
     {
         return $this->find("{$this->primary} = :id", "id={$id}", $columns)->fetch();
     }
